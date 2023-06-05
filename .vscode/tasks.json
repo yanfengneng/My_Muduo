@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+            "label": "compile",// 与 launch.json 中的 label 要一样才能运行
+            "command": "g++",// 要使用的编译器，c语言就是gcc，c++就是g++
+            "args": [
+                "-g", //生成和调试有关的信息
+                "${file}",
+                "-o",// 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out
+                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "-std=c++11", // 语言标准，可根据自己的需要进行修改，写c++要换成c++的语言标准，比如c++11.14.17
+                "-std=c++14", 
+                "-std=c++17",
+                //"-lpthread" // 加入多线程编译选项，可删除
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
