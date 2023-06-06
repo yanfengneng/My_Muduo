@@ -1,2 +1,5 @@
 DDmuduo
 A-Tiny-Network-Library
+*.out
+*/build
+*.txt
